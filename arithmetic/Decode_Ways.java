@@ -28,6 +28,12 @@ dp[i]表示从0开始长度为i的substing有多少种解码方法。
 2.如果i-1和i组合成的数字大于0，小于等于26，且数字i-1不为0（与1中值不一样），那么这个组合可以解码，故有dp[i-2]种方法。
 上面两种可能性相互独立，应当相加。
 
+Recursion formula:
+dp[i] indicates how many decoding methods there are for substing of length i starting from 0.
+1. If i is not 0, there are dp[i-1] methods for i to decode alone.
+2. If the number formed by i-1 and i is greater than 0, less than or equal to 26, and the number i-1 is not 0 (different from the median value of 1), then this combination can be decoded, so there is dp[i-2] a method.
+The above two possibilities are independent of each other and should be added together.
+
 故：
 if (oneDigit != 0) {
     dp[i] += dp[i - 1];
@@ -41,6 +47,13 @@ if (twoDigit <= 26 && twoDigit > 0 && twoDigit != oneDigit) {
 当有0个字符时，有1种解码方法即空解。
 当有1个字符时，如果不为‘0’，有1种解码方法。如果为‘0’，该字符串不能解码。
 故：
+dp[0] = dp[1] = 1
+
+Initial conditions:
+Since dp[i-2] needs to be used, it is necessary to initialize the first two
+When there are 0 characters, there is 1 decoding method, the empty solution.
+When there is 1 character, if not '0', there is 1 decoding method. If '0', the string cannot be decoded.
+Therefore:
 dp[0] = dp[1] = 1
 
 
