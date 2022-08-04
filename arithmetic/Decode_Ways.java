@@ -31,7 +31,8 @@ dp[i]表示从0开始长度为i的substing有多少种解码方法。
 Recursion formula:
 dp[i] indicates how many decoding methods there are for substing of length i starting from 0.
 1. If i is not 0, there are dp[i-1] methods for i to decode alone.
-2. If the number formed by i-1 and i is greater than 0, less than or equal to 26, and the number i-1 is not 0 (different from the median value of 1), then this combination can be decoded, so there is dp[i-2] a method.
+2. If the number formed by i-1 and i is greater than 0, less than or equal to 26, AND 
+      the number i-1 is not 0 (different from the median value of 1), then this combination can be decoded, so there is dp[i-2] a method.
 The above two possibilities are independent of each other and should be added together.
 
 故：
